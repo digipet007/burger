@@ -1,26 +1,26 @@
+//Node dependencies
 const express = require('express');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
-var exphb = require('express-handlebars');
+
 
 const app = express();
-
+//Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static(__dirname + '/public'));
 
-app.use(bodyParser.urlencoded({ extended: false }));
+//parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(methodOverride('_method'));
-app.engine('handlebars', exphb({
-    defaultLayout: 'main'
-}));
+// app.use(methodOverride('_method'));
+// app.use(bodyParser.json());
 
+//Handlebars Stuff
+var exphbs = require('express-handlebars');
+// Set Handlebars as the default templating engine.
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 
-//include html route file, with express app parameter passed into module.exports function
-//NOTE: api routes need to be included first because they pull data to display in html pages
-var routes = require("./controllers/routes")(app);
-// require("./routing/htmlRoutes")(app);
-
+var routes = require("./controllers/routes");
 app.use('/', routes);
 
 var PORT = process.env.PORT || 8080;

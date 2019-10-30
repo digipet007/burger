@@ -1,27 +1,37 @@
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12 text-center" id="top-bar">
-            <h1>Eat the Burger</h1>
+    
+    <div class="row">     
+        <h1>Eat the Burger</h1>
+    </div>
+       
+    <div class="row" class="task">
+
+        <div class="col-lg-6 text-center">
+            <h2>Available to Eat</h2>
+            {{!-- loop through the burger data- only render here if devoured=0--}}
+            {{#each burger_data}}
+                {{#unless devoured}}
+                <h3 class="form-control">{{id}}. {{burger_name}}</h3>
+            {{!-- When button is clicked, will send id back to the server, unless devoured=1 --}}
+            <form method="POST" action="/burgers/eat/{{id}}" class="button-size">
+                <input type="hidden" name="burger_id" type="text" value={{id}}>
+                <button type="submit" class="btn btn-primary">Eat Burger</button>
+                <br>
+            </form>
+        {{/unless}}
+        {{/each}}
         </div>
-        <div class="col-xs-6 text-center" class="task">
-            <div class="row">
-                {{!-- loop through the burger data, and for each piece of burger data, it will post this.id and this.burger_name within a preformatted text element, unless this.devoured = true--}}
-                {{#each burger_data}}
-                    {{#unless this.devoured}}
-                <div class="col-xs-9 text-center">
-                    <pre>{{this.id}}. {{this.burger_name}}</pre>
-                </div>
-                <div class="col-xs-3 text-center">
-                    <form method="POST" action="/burgers/update??_method=PUT" class="button-size">
-                    {{!-- button, when clicked, will send this.id back to the server, unless this.devoured = true --}}
-                        <input type="hidden" name="burger_id" type="text" values={{this.id}}>
-                        <br>
-                        <button type="submit" class="btn btn-default">Eat Burger</button>
-                    </form>
-                </div>
-                {{/unless}}
-                {{/each}}
-            </div>
+
+        <div class="col-xs-6 text-center">
+            <h2>Already Eaten</h2>
+            {{!-- loop through the burger data- only render here if devoured=0--}}
+            {{#each burger_data}}
+                {{#if devoured}}
+                    <h3 class="form-control">{{id}}. {{burger_name}}</h3>
+                {{/if}}
+            {{/each}}
+
         </div>
+
     </div>
 </div>

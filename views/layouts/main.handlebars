@@ -4,9 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {{!-- <link rel="stylesheet" href="/public/assets/css/burger_style.css"> --}}
     <title>Burger Tracker</title>
 </head>
 <body>
+
+    <div class="container">
+    
+    <div class="row text-center"><h1>Welcome to Virtual Burger</h1></div>
+    
+    {{!-- three curly braces indicates directions to render the html --}}
     {{{body}}}
+
+    {{!-- Burger order form --}}
+    <div class="row text-center">
+        <form action="burger/create" method="POST">
+        
+
+            <div class="form-group col-md-6">
+                <label for="newBurger">Request a new burger by placing your order below</label>
+                <input type="text" name="burger_name" class="form-control" value="" id="burger_request">
+                {{!-- <textarea class="form-control" columns="8" rows="4" id="newBurger" name="burger_name"></textarea> --}}
+            </div>
+
+            <button id="submit-button" type="submit" class="btn btn-danger">Place Order</button>
+        
+        </form>
+    </div>
+
+    </div>
 </body>
 </html>
+
