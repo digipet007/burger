@@ -1,34 +1,44 @@
     
-<div class="row">
+<div class="row mt-1">
 
-    <div class="col text-center center-block" id="available-to-eat-div">
-
-        <h2 class="burger-title">Available to Eat</h2>
-        {{!-- loop through the burger data- only render here if devoured=0--}}
-        {{#each burger_data}}
-        {{#unless devoured}}
-        <span class="form-control burger-name-and-ids">
-            {{id}}. {{burger_name}}
-        </span>
-
-        {{!-- When button is clicked, will send id back to the server, unless devoured=1 --}}
-        <form method="POST" action="/burgers/eat/{{id}}" class="button-size">
-            <input type="hidden" name="burger_id" type="text" value={{id}}>
-            <button type="submit" class="btn btn-primary">Eat Burger</button>
-            <br>
-        </form>
-        {{/unless}}
-        {{/each}}
+    <div class="col-md-6 mt-1 pd-md-4 text-center center-block" id="available-to-eat-div">
+        <div class="card border border-dark">
+            <div class="card-header bg-success text-white">
+                <h2 class="burger-title">Available to Eat</h2>
+            </div>
+            <div class="card-body availableBrgrs">
+                {{!-- loop through the burger data- only render here if devoured=0--}}
+                {{#each burger_data}}
+                {{#unless devoured}}
+                <span class="mt-4 burgerTitles">
+                    {{id}}. {{burger_name}}
+                </span>
+                {{!-- When button is clicked, will send id back to the server, unless devoured=1 --}}
+                <form method="POST" action="/burgers/eat/{{id}}" class="button-size">
+                    <input type="hidden" name="burger_id" type="text" value={{id}}>
+                    <button type="submit" class="btn btn-success btn-block burgerBtn">Eat Burger</button>
+                    <br>
+                </form>
+                {{/unless}}
+                {{/each}}
+            </div>
+        </div>
     </div>
 
-    <div class="col text-center center-block" id="already-eaten-div">
-        <h2 class="burger-title">Already Eaten</h2>
-        {{!-- loop through the burger data- only render here if devoured=0--}}
-        {{#each burger_data}}
-            {{#if devoured}}
-                <h3 class="form-control">{{id}}. {{burger_name}}</h3>
-            {{/if}}
-        {{/each}}
+    <div class="col-md-6 mt-1 text-center center-block" id="already-eaten-div">
+        <div class="card border border-dark">
+            <div class="card-header bg-danger text-white">
+                <h2 class="burger-title">Already Eaten</h2>
+            </div>
+            <div class="card-body">
+                {{!-- loop through the burger data- only render here if devoured=0--}}
+                {{#each burger_data}}
+                    {{#if devoured}}
+                        <h3 class="form-control">{{id}}. {{burger_name}}</h3>
+                    {{/if}}
+                {{/each}}
+            </div>
+        </div>
     </div>
 
 </div>
