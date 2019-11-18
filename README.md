@@ -16,7 +16,7 @@ You will also need Node.js installed.  For more information, visit <https://node
 
 ### Installing
 
-To install, access the Github page (https://github.com/digipet007/burger).  You may fork the repository and then clone it to your computer.  
+To install, access the Github page <https://github.com/digipet007/burger>.  You may fork the repository and then clone it to your computer.  
 
 Next, you will need to download the required NPM packages.  The required NPM packages include:
 ```
@@ -82,7 +82,3 @@ The following packages were used to create this app:
 ## Author
 
 * **Sarah Arnold** --view my portfolio and bio: <https://digipet007.github.io/Sarahs-Portfolio/>
-
-## Acknowledgments
-
-* Created for UW Full Stack Flex Certificate program, according to program specifications.
