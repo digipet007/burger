@@ -35,6 +35,11 @@
                 {{#each burger_data}}
                     {{#if devoured}}
                         <h3 class="form-control">{{id}}. {{burger_name}}</h3>
+                        <form method="POST" action="/burger/delete/{{id}}?_method=DELETE" class="button-size">
+                            <input type="hidden" name="_method" type="text" value={{id}}>
+                            <button type="submit" class="btn btn-success btn-block burgerBtn">Delete Burger</button>
+                            <br>
+                        </form>
                     {{/if}}
                 {{/each}}
             </div>
