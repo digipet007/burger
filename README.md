@@ -4,6 +4,8 @@
 
 Welcome to Virtual Burger! This is a burger logger that allows you, the client, to create a virtual burger, or devour a virtual burger. with MySQL, Node, Express, Handlebars and a homemade ORM. It follows the MVC design pattern, using Node and MySQL to query and route data, and Handlebars to generate the HTML.
 
+![burger demo](demo/burger.gif)
+
 For a demo of the app, visit: <https://aqueous-castle-58496.herokuapp.com>
 
 ### Prerequisites
